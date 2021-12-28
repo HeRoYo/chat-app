@@ -10,37 +10,9 @@
     </div>
   </div>
 </div>
+
 <div class="talk">
-  <div class="message">
-    <div class="upper_date">
-      <div class="message_user">
-        name
-      </div>
-      <div class="message_date">
-        date:00/00/00/00
-      </div>
-    </div>
-    <div class="lower_date">
-      <div class="message_content">
-        hello
-      </div>
-    </div>
-  </div>
-  <div class="message">
-    <div class="upper_date">
-      <div class="message_user">
-        namae
-      </div>
-      <div class="message_date">
-        date:01/01/01/01
-      </div>
-    </div>
-    <div class="lower_date">
-      <div class="message_content">
-        hey
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'message', collection: @messages %>
 </div>
 
 <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>

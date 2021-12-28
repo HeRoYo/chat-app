@@ -1,0 +1,18 @@
+<div class="message">
+  <div class="upper_date">
+    <div class="message_user">
+      <!-- 投稿したユーザー名情報を出力する -->
+      <%= message.user.name %>
+    </div>
+    <div class="message_date">
+      <!-- 投稿した時刻を出力する -->
+      <%= message.created_at %>
+    </div>
+  </div>
+  <div class="lower_date">
+    <div class="message_content">
+      <!--投稿したメッセージ内容を記述する-->
+      <%= message.content %>
+    </div>
+  </div>
+</div>
