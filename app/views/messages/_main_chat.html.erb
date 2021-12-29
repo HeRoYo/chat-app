@@ -1,54 +1,27 @@
 <div class="main_header">
   <div class="left_side">
     <div class=chat_name>
-      test
+      <%= @room.name %>
     </div>
   </div>
   <div class="right_side">
     <div class="end_btn">
-      <a href="#">チャットを終了する</a>
+      <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
     </div>
   </div>
 </div>
+
 <div class="talk">
-  <div class="message">
-    <div class="upper_date">
-      <div class="message_user">
-        name
-      </div>
-      <div class="message_date">
-        date:00/00/00/00
-      </div>
-    </div>
-    <div class="lower_date">
-      <div class="message_content">
-        hello
-      </div>
-    </div>
-  </div>
-  <div class="message">
-    <div class="upper_date">
-      <div class="message_user">
-        namae
-      </div>
-      <div class="message_date">
-        date:01/01/01/01
-      </div>
-    </div>
-    <div class="lower_date">
-      <div class="message_content">
-        hey
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'message', collection: @messages %>
 </div>
-<div class="form">
+
+<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
   <div class="form_input">
-    <input class="form_text" placeholder="type a message">
+    <%= f.text_field :content, class: 'form_text', placeholder: 'type a message' %>
     <label class="form_image">
       <span class="image_file">画像</span>
-      <input type="file" class="hidden">
+      <%= f.file_field :image, class: 'hidden' %>
     </label>
   </div>
-  <input class="form_submit" type="submit" value="送信">
-</div>
+  <%= f.submit '送信', class: 'form_submit' %>
+<% end %>
